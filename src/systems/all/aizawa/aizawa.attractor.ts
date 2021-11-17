@@ -1,12 +1,12 @@
-import ParticleSystem from "../attractor";
-import { AttractorAndConfig } from "./../config/attractors";
+import ParticleSystem from "../../config/attractor";
+import { AttractorAndConfig } from "../../attractors";
 
 class AizawaAttractor extends ParticleSystem {
   protected makeParticle() {
     const particle = {
       x: 0.1,
-      y: 0,
-      z: 0,
+      y: 0.2,
+      z: 0.3,
       a: 0.95,
       b: 0.7,
       c: 0.6,
@@ -55,10 +55,10 @@ export default AizawaAttractor;
 export const AizawaAttractorConfig: AttractorAndConfig = {
   attractor: new AizawaAttractor(),
   config: {
-    particles: 100000,
-    zoom: 5,
+    particles: 200000,
+    zoom: 4,
     speed: 1,
-    sizeParticle: 0.01,
+    sizeParticle: 0.013,
     autoRotate: true,
     description: "",
   },

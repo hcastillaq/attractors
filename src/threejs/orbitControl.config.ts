@@ -26,7 +26,7 @@ export const getOrbitControl = (
   controls.enableDamping = config.enableDamping || true;
   controls.dampingFactor = config.dampingFactor || 0.25;
   controls.enableZoom = config.enableZoom || true;
-  controls.autoRotate = config.autoRotate || false;
+  controls.autoRotate = false;
   controls.autoRotateSpeed = config.autoRotateSpeed || 0.3;
   return controls;
 };

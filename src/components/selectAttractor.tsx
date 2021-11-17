@@ -1,7 +1,6 @@
 import React, { SyntheticEvent, useContext } from "react";
 import styled from "styled-components";
-import { ATTRACTORS } from "../attractors/config/attractors";
-import FactoryAttractorInstance from "../attractors/config/factory.attractor";
+import { ATTRACTORS } from "../systems/attractors";
 import { Context } from "../context/context";
 
 const Select = styled.select`
@@ -22,12 +21,18 @@ const Form = styled.form`
   flex-direction: column;
 `;
 const H1 = styled.h1`
-  font-size: 3rem;
+  &,
+  span {
+    font-size: 3rem;
+  }
+  display: flex;
+  flex-direction: column;
   margin: 40px 0px;
+  font-style: italic;
 `;
 const SelectAttractorStyled = styled.div`
   width: 100%;
-  height: 100vh;
+  margin-top: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,7 +51,10 @@ const SelectAttractor = () => {
   };
   return (
     <SelectAttractorStyled>
-      <H1>Attractor Simulation</H1>
+      <H1>
+        <span>Generative Art</span>
+        <span>Whit Particles</span>
+      </H1>
       <Form onSubmit={handleSubmit}>
         <Select placeholder="Select Attractor" name="attractor" required>
           {options.map((option, index) => (

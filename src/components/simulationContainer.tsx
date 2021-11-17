@@ -1,34 +1,38 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import FactoryAttractorInstance from "../attractors/config/factory.attractor";
+import FactoryAttractorInstance from "../systems/config/factory.attractor";
 import { Context } from "../context/context";
+import useSimulation from "../hooks/useSimulation";
 import {
+  AnimationParticles,
+  AnimationParticlesCallBacks,
   AttractorAnimateConfig,
-  startAttractorAnimate,
 } from "../threejs/config.threejs";
-import AttractorGui from "./attractorGui";
+import AttractorGui from "./gui/attractorGui";
 
 const AttractorContainer = styled.div`
   cursor: crosshair;
 `;
 
 const SimulationContainer = () => {
-  const attractorName = useContext(Context).attractor;
-  const { setIsSelecting } = useContext(Context);
-
+  const { attractor, config, color, setAnimation, opacity } = useSimulation();
   const ref = useRef(null);
+
   useEffect(() => {
     let stop = () => {};
-    if (ref.current && attractorName) {
-      const { attractor, config } = FactoryAttractorInstance.get(attractorName);
+    if (ref.current) {
+      // config attractor
       attractor.setMaxParticles(config.particles);
       attractor.setSpeed(config.speed);
+
+      //config for animation
       const node: HTMLElement = ref.current as HTMLElement;
       const newConfig: AttractorAnimateConfig = {
         attractor,
         material: {
-          color: 0x00ffff,
+          color: color,
           sizeParticle: config.sizeParticle,
+          opacity: opacity,
         },
         parentNode: node,
         zoom: config.zoom,
@@ -36,9 +40,16 @@ const SimulationContainer = () => {
           autoRotate: config.autoRotate,
         },
       };
-      stop = startAttractorAnimate(newConfig);
-    }
 
+      // start animation
+      const animation = AnimationParticles(newConfig);
+
+      setAnimation({ ...animation });
+
+      // set stop animation
+      animation.start();
+      stop = animation.stop;
+    }
     return () => {
       stop();
     };

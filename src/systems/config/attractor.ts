@@ -1,14 +1,14 @@
 import { BufferGeometry, Float32BufferAttribute } from "three";
 
-type Particle = { [key: string]: number };
+export type ParticleInParticleSystem = { [key: string]: number };
 abstract class ParticleSystem {
-  protected particles: Array<Particle> = [];
+  protected particles: Array<ParticleInParticleSystem> = [];
   public maxParticles: number = 0;
   protected geometry: BufferGeometry = new BufferGeometry();
   protected speed: number = 1;
 
   public abstract update(): void;
-  protected abstract makeParticle(): Particle;
+  protected abstract makeParticle(): ParticleInParticleSystem;
 
   public getParticlesNumber() {
     return this.particles.length;
@@ -87,7 +87,7 @@ abstract class ParticleSystem {
     this.geometry.dispose();
     this.geometry.deleteAttribute("position");
     this.particles = [];
-    this.setMaxParticles(0);
+    this.maxParticles = 0;
     this.speed = 1;
   }
 }

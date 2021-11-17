@@ -1,5 +1,5 @@
-import { BufferGeometry, Points, PointsMaterial } from "three";
-import ParticleSystem from "../attractors/attractor";
+import { BufferGeometry, Line, Points, PointsMaterial, Shape } from "three";
+import ParticleSystem from "../systems/config/attractor";
 import { CAMERA, RENDERER, SCENE } from "./globals.three";
 import { getOrbitControl, OrbitControlConfig } from "./orbitControl.config";
 import Stats from "three/examples/jsm/libs/stats.module";
@@ -16,10 +16,16 @@ export type AttractorAnimateConfig = {
   orbitConfig?: OrbitControlConfig;
 };
 
-type startAnimationDelete = () => void;
-export const startAttractorAnimate = function (
+export type AnimationParticlesCallBacks = {
+  start: () => void;
+  stop: () => void;
+  changeColor: (color: number) => void;
+  changeOpacity: (opacity: number) => void;
+};
+
+export const AnimationParticles = function (
   config: AttractorAnimateConfig
-): startAnimationDelete {
+): AnimationParticlesCallBacks {
   // render element in the DOM
   config.parentNode.appendChild(RENDERER.domElement);
 
@@ -62,9 +68,19 @@ export const startAttractorAnimate = function (
   //rotate
   const rotate = () => {
     if (config.orbitConfig?.autoRotate) {
-      SCENE.rotateX(0.001);
-      SCENE.rotateY(0.001);
+      SCENE.rotateX(((-90 * Math.PI) / 180) * 0.001);
+      SCENE.rotateY(((90 * Math.PI) / 180) * 0.001);
     }
+  };
+
+  //change color
+  const changeColor = (color: number) => {
+    material.color.set(color);
+  };
+
+  // change opacity
+  const changeOpacity = (opacity: number) => {
+    material.opacity = opacity;
   };
 
   // animation stop
@@ -86,6 +102,7 @@ export const startAttractorAnimate = function (
     window.removeEventListener("resize", resize, false);
     console.log("stop animations");
   };
+
   //animate
   const animate = () => {
     idAnimation = requestAnimationFrame(animate);
@@ -95,6 +112,11 @@ export const startAttractorAnimate = function (
     RENDERER.render(SCENE, CAMERA);
     stats.update();
   };
-  animate();
-  return stopAnimation;
+
+  return {
+    start: animate,
+    stop: stopAnimation,
+    changeColor,
+    changeOpacity,
+  };
 };
