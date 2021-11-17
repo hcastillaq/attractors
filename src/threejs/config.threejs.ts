@@ -78,6 +78,7 @@ export const startAttractorAnimate = function (
     CAMERA.position.set(0, 0, 0);
     CAMERA.lookAt(0, 0, 0);
     CAMERA.clear();
+    SCENE.rotation.set(0, 0, 0);
     SCENE.remove(points);
     SCENE.remove(CAMERA);
     SCENE.clear();
