@@ -109,6 +109,7 @@ export const AnimationParticles = function (
     config.attractor.update();
     rotate();
     controls.update();
+    geometry.attributes.position.needsUpdate = true;
     RENDERER.render(SCENE, CAMERA);
     stats.update();
   };

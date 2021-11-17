@@ -33,7 +33,6 @@ class LorenzAttractor extends ParticleSystem {
         );
       }
     }
-    this.geometry.attributes.position.needsUpdate = true;
   }
 }
 

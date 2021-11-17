@@ -5,8 +5,8 @@ class AizawaAttractor extends ParticleSystem {
   protected makeParticle() {
     const particle = {
       x: 0.1,
-      y: 0.2,
-      z: 0.3,
+      y: 1.0,
+      z: 0.01,
       a: 0.95,
       b: 0.7,
       c: 0.6,
@@ -46,7 +46,6 @@ class AizawaAttractor extends ParticleSystem {
         particle.z
       );
     }
-    this.geometry.attributes.position.needsUpdate = true;
   }
 }
 

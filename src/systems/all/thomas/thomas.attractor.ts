@@ -29,7 +29,6 @@ class ThomasAttractor extends ParticleSystem {
         particle.z
       );
     }
-    this.geometry.attributes.position.needsUpdate = true;
   }
 }
 
