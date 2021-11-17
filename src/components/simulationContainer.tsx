@@ -13,16 +13,7 @@ import AttractorGui from "./attractorGui";
 const AttractorContainer = styled.div`
   cursor: crosshair;
 `;
-const ButtonBack = styled.button`
-  height: 40px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  border: none;
-  background: #a7a7a7;
-  padding: 0px 10px;
-`;
+
 const SimulationContainer = () => {
   const attractorName = useContext(Context).attractor;
   const { setIsSelecting } = useContext(Context);
@@ -55,12 +46,8 @@ const SimulationContainer = () => {
     };
   }, [ref]);
 
-  const handleClick = () => {
-    setIsSelecting(true);
-  };
   return (
     <div>
-      <ButtonBack onClick={handleClick}>Change Attractor</ButtonBack>
       <AttractorGui />
       <AttractorContainer ref={ref}></AttractorContainer>
     </div>

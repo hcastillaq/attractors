@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import FactoryAttractorInstance from "../attractors/factory.attractor";
 import { Context } from "../context/context";
 import styled from "styled-components";
-import ParticleSystem from "../attractors/attractor";
 
 const AttractorGuiStyles = styled.div`
   position: absolute;
-  top: 100px;
-  right: 20px;
+  top: 10px;
+  right: 30px;
   display: flex;
   flex-direction: column;
   background-color: #00000071;
@@ -29,13 +28,21 @@ const ItemGui = styled.div`
   gap: 10px;
   margin: 10px 0px;
 `;
+const ButtonBack = styled.button`
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  background: #a7a7a7;
+  padding: 0px 10px;
+  margin-top: 20px;
+`;
 
 type GuiDataTypes = {
   particles: number;
   speed: number;
 };
 const AttractorGui = () => {
-  const { attractor } = useContext(Context);
+  const { attractor, setIsSelecting } = useContext(Context);
   const [data, setData] = useState<GuiDataTypes>({ particles: 0, speed: 1 });
   const FactoryAttractor = FactoryAttractorInstance.get(attractor);
 
@@ -56,17 +63,15 @@ const AttractorGui = () => {
     setData({ ...data, particles: value });
   };
 
-  const handleParticleSize = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  };
-
   const handleParticleSpeed = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
     setData({ ...data, speed: value });
     console.log(value);
     FactoryAttractor.attractor.changeSpeed(value);
   };
-
+  const handleClick = () => {
+    setIsSelecting(true);
+  };
   return (
     <AttractorGuiStyles>
       <ItemGui>
@@ -92,6 +97,7 @@ const AttractorGui = () => {
           onChange={handleParticleSpeed}
         />
       </ItemGui>
+      <ButtonBack onClick={handleClick}>Change Attractor</ButtonBack>
     </AttractorGuiStyles>
   );
 };
