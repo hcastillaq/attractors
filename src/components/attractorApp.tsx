@@ -5,7 +5,7 @@ import SimulationContainer from "./simulationContainer";
 
 const AttractorApp = () => {
   const [isSelecting, setIsSelecting] = useState<boolean>(true);
-  const [attractor, setAttractor] = useState<string | undefined>(undefined);
+  const [attractor, setAttractor] = useState<string>("");
   const handleShowComponent = (): JSX.Element => {
     if (isSelecting) {
       return <SelectAttractor />;

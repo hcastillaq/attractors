@@ -13,7 +13,7 @@ class AizawaAttractor extends ParticleSystem {
       d: 3.5,
       e: 0.25,
       f: 0.1,
-      dt: this.random(0.01, 0.05) * this.speed,
+      dt: this.random(0.01, 0.08),
     };
     return particle;
   }
@@ -35,9 +35,9 @@ class AizawaAttractor extends ParticleSystem {
       dy *= particle.dt;
       dz *= particle.dt;
 
-      particle.x += dx;
-      particle.y += dy;
-      particle.z += dz;
+      particle.x += dx * this.speed;
+      particle.y += dy * this.speed;
+      particle.z += dz * this.speed;
 
       this.geometry.attributes.position.setXYZ(
         i,
@@ -57,8 +57,8 @@ export const AizawaAttractorConfig: AttractorAndConfig = {
   config: {
     particles: 100000,
     zoom: 5,
-    speed: 1.3,
-    sizeParticle: 0.02,
+    speed: 1,
+    sizeParticle: 0.01,
     autoRotate: true,
     description: "",
   },

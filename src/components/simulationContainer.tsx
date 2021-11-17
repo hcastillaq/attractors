@@ -8,6 +8,7 @@ import {
   AttractorAnimateConfig,
   startAttractorAnimate,
 } from "../threejs/config.threejs";
+import AttractorGui from "./attractorGui";
 
 const AttractorContainer = styled.div`
   cursor: crosshair;
@@ -29,11 +30,8 @@ const SimulationContainer = () => {
   const ref = useRef(null);
   useEffect(() => {
     let stop = () => {};
-    let attractor: ParticleSystem;
-    let config: AttractorConfig;
     if (ref.current && attractorName) {
-      attractor = FactoryAttractorInstance.get(attractorName).attractor;
-      config = FactoryAttractorInstance.get(attractorName).config;
+      const { attractor, config } = FactoryAttractorInstance.get(attractorName);
       attractor.setMaxParticles(config.particles);
       attractor.setSpeed(config.speed);
       const node: HTMLElement = ref.current as HTMLElement;
@@ -54,7 +52,6 @@ const SimulationContainer = () => {
 
     return () => {
       stop();
-      attractor.dispose();
     };
   }, [ref]);
 
@@ -64,6 +61,7 @@ const SimulationContainer = () => {
   return (
     <div>
       <ButtonBack onClick={handleClick}>Change Attractor</ButtonBack>
+      <AttractorGui />
       <AttractorContainer ref={ref}></AttractorContainer>
     </div>
   );

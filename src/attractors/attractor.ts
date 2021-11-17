@@ -3,12 +3,16 @@ import { BufferGeometry, Float32BufferAttribute } from "three";
 type Particle = { [key: string]: number };
 abstract class ParticleSystem {
   protected particles: Array<Particle> = [];
-  protected maxParticles: number = 0;
+  public maxParticles: number = 0;
   protected geometry: BufferGeometry = new BufferGeometry();
   protected speed: number = 1;
 
   public abstract update(): void;
   protected abstract makeParticle(): Particle;
+
+  public getParticlesNumber() {
+    return this.particles.length;
+  }
 
   protected validatePositiveNumber(value: number): boolean {
     return value >= 0 ? true : false;
@@ -24,12 +28,7 @@ abstract class ParticleSystem {
   }
 
   public changeSpeed(speed: number) {
-    if (this.validatePositiveNumber(speed)) {
-      for (let i = 0; i < this.maxParticles; i++) {
-        this.particles[i].dt *= speed;
-      }
-      this.speed = speed;
-    }
+    this.speed = speed;
   }
 
   public setMaxParticles(maxParticles: number): void {
@@ -51,14 +50,14 @@ abstract class ParticleSystem {
     if (this.validatePositiveNumber(size)) {
       if (size < this.maxParticles) {
         this.particles = this.particles.splice(this.maxParticles - size);
-        this.maxParticles = this.particles.length;
+        this.setMaxParticles(this.particles.length);
         this.updateParticles();
       }
       if (size > this.maxParticles) {
         for (let i = 0; i < size; i++) {
           this.particles.push(this.makeParticle());
         }
-        this.maxParticles += size;
+        this.setMaxParticles(this.maxParticles + size);
         this.updateParticles();
       }
     }
@@ -88,7 +87,7 @@ abstract class ParticleSystem {
     this.geometry.dispose();
     this.geometry.deleteAttribute("position");
     this.particles = [];
-    this.maxParticles = 0;
+    this.setMaxParticles(0);
     this.speed = 1;
   }
 }
