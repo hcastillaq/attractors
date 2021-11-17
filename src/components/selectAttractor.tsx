@@ -53,7 +53,7 @@ const SelectAttractor = () => {
     <SelectAttractorStyled>
       <H1>
         <span>Generative Art</span>
-        <span>Whit Particles</span>
+        <span>With Particles</span>
       </H1>
       <Form onSubmit={handleSubmit}>
         <Select placeholder="Select Attractor" name="attractor" required>
