@@ -1,4 +1,4 @@
-import { AttractorAndConfig, ATTRACTORS } from "./attractors";
+import { AttractorAndConfig, ATTRACTORS } from "../config/attractors";
 
 class FactoryAttractor {
   private static instance: FactoryAttractor;

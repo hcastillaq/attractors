@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import FactoryAttractorInstance from "../attractors/factory.attractor";
+import FactoryAttractorInstance from "../attractors/config/factory.attractor";
 import { Context } from "../context/context";
 import styled from "styled-components";
 

@@ -1,4 +1,4 @@
-import FactoryAttractorInstance from "./attractors/factory.attractor";
+import FactoryAttractorInstance from "./attractors/config/factory.attractor";
 import "./css/style.css";
 import {
   AttractorAnimateConfig,

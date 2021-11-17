@@ -1,5 +1,5 @@
-import ParticleSystem from "./attractor";
-import { AttractorAndConfig } from "./attractors";
+import ParticleSystem from "../attractor";
+import { AttractorAndConfig } from "./../config/attractors";
 
 class LorenzAttractor extends ParticleSystem {
   protected makeParticle() {

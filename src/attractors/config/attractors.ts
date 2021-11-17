@@ -1,6 +1,6 @@
-import ParticleSystem from "./attractor";
-import { AizawaAttractorConfig } from "./aizawa.attractor";
-import { LorenzAttractorConfig } from "./lorenz.attractor";
+import ParticleSystem from "./../attractor";
+import { AizawaAttractorConfig } from "./../aizawa/aizawa.attractor";
+import { LorenzAttractorConfig } from "./../lorenz/lorenz.attractor";
 
 export type AttractorConfig = {
   particles: number;

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import styled from "styled-components";
-import ParticleSystem from "../attractors/attractor";
-import { AttractorConfig } from "../attractors/attractors";
-import FactoryAttractorInstance from "../attractors/factory.attractor";
+import FactoryAttractorInstance from "../attractors/config/factory.attractor";
 import { Context } from "../context/context";
 import {
   AttractorAnimateConfig,
