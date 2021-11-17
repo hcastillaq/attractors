@@ -11,7 +11,7 @@ const ParticlesGui = () => {
   const debounceParticles = useDebounce(particles, 500);
 
   useEffect(() => {
-    if (debounceParticles !== NaN) {
+    if (!isNaN(debounceParticles)) {
       attractor.changeMaxParticles(debounceParticles);
     }
   }, [debounceParticles]);
