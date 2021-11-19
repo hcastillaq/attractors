@@ -6,7 +6,6 @@ export const Btn = styled.button`
   height: 40px;
   cursor: pointer;
   border: none;
-  background: #a7a7a7;
   padding: 0px 10px;
   margin-top: 20px;
 `;
