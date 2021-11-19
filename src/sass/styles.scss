@@ -1,0 +1,21 @@
+@use "./layout.scss";
+@use "./inputs.scss";
+@use "./buttons.scss";
+@use "./links.scss";
+@use "./typography.scss";
+@use "./flexbox.scss";
+@use "./simulations.scss";
+@use "./formule.scss";
+:root {
+  --text-color: #000;
+}
+
+html {
+  font-size: 20px;
+  line-height: 1.6;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
