@@ -6,8 +6,10 @@ import ButtonBackGui from "./components/buttonBack.gui";
 import SpeedGiu from "./components/speed.gui";
 import ColorGui from "./components/color.gui";
 import OpacityGiu from "./components/opacity.gui";
+import TakePhoto from "./components/takePhoto.gui";
 
 const AttractorGuiStyles = styled.div`
+  width: 300px;
   position: absolute;
   top: 10px;
   right: 30px;
@@ -24,6 +26,7 @@ const AttractorGui = () => {
       <ParticlesGui />
       <SpeedGiu />
       <OpacityGiu />
+      <TakePhoto />
       <ButtonBackGui />
     </AttractorGuiStyles>
   );

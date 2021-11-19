@@ -16,6 +16,7 @@ const initialContext: ContextType = {
     stop: () => {},
     changeColor: () => {},
     changeOpacity: () => {},
+    takePhoto: () => {},
   },
   system: "",
   isSelecting: true,

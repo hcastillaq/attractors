@@ -21,6 +21,7 @@ export type AnimationParticlesCallBacks = {
   stop: () => void;
   changeColor: (color: number) => void;
   changeOpacity: (opacity: number) => void;
+  takePhoto: () => void;
 };
 
 export const AnimationParticles = function (
@@ -103,6 +104,23 @@ export const AnimationParticles = function (
     console.log("stop animations");
   };
 
+  //takePhoto
+  const takePhoto = () => {
+    RENDERER.render(SCENE, CAMERA);
+    RENDERER.domElement.toBlob(
+      function (blob) {
+        if (blob !== null) {
+          var a = document.createElement("a");
+          var url = URL.createObjectURL(blob);
+          a.href = url;
+          a.download = "particles.png";
+          a.click();
+        }
+      },
+      "image/png",
+      1
+    );
+  };
   //animate
   const animate = () => {
     idAnimation = requestAnimationFrame(animate);
@@ -119,5 +137,6 @@ export const AnimationParticles = function (
     stop: stopAnimation,
     changeColor,
     changeOpacity,
+    takePhoto,
   };
 };

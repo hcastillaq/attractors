@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export const InputGui = styled.input`
-  width: 200px;
+  min-width: 200px;
   height: 40px;
   padding: 0 10px;
   color: #000;
