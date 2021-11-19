@@ -26,7 +26,7 @@ function index() {
         particles, expressed for mathematical equations or physics phenomenons.
       </span>
       <br />
-      <h2>Simulations</h2>
+      <h2>Some Simulations</h2>
       <div className="simulations-list">
         <ul>
           {simulations.map((simulation, index) => (
