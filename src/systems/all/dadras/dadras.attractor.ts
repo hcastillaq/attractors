@@ -1,5 +1,5 @@
 import particle from "../../../particles/particle";
-import { AttractorAndConfig } from "../../attractors";
+import { AttractorAndConfig } from "../../systems";
 import ParticleSystem from "../../config/attractor";
 
 class DadrasAttractor extends ParticleSystem {

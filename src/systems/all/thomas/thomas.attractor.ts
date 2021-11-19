@@ -1,4 +1,4 @@
-import { AttractorAndConfig } from "../../attractors";
+import { AttractorAndConfig } from "../../systems";
 import ParticleSystem from "../../config/attractor";
 
 class ThomasAttractor extends ParticleSystem {
