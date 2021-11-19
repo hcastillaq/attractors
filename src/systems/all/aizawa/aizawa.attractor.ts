@@ -1,5 +1,5 @@
 import ParticleSystem from "../../config/attractor";
-import { AttractorAndConfig } from "../../attractors";
+import { AttractorAndConfig } from "../../systems";
 
 class AizawaAttractor extends ParticleSystem {
   protected makeParticle() {

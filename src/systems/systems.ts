@@ -3,6 +3,7 @@ import { AizawaAttractorConfig } from "./all/aizawa/aizawa.attractor";
 import { LorenzAttractorConfig } from "./all/lorenz/lorenz.attractor";
 import { ThomasAttractorConfig } from "./all/thomas/thomas.attractor";
 import { DadrasAttractorConfig } from "./all/dadras/dadras.attractor";
+import { ChenAttractorConfig } from "./all/chen/chen.attractor";
 
 export type AttractorConfig = {
   particles: number;
@@ -22,4 +23,5 @@ export const ATTRACTORS: { [key: string]: AttractorAndConfig } = {
   "Aizawa Attractor": { ...AizawaAttractorConfig },
   "Thomas Attractor": { ...ThomasAttractorConfig },
   "Dadras Attractor": { ...DadrasAttractorConfig },
+  "Chen Attractor": { ...ChenAttractorConfig },
 };

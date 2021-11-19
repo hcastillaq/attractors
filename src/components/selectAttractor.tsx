@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useContext } from "react";
 import styled from "styled-components";
-import { ATTRACTORS } from "../systems/attractors";
+import { ATTRACTORS } from "../systems/systems";
 import { Context } from "../context/context";
 
 const Select = styled.select`
