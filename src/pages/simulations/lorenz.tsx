@@ -1,9 +1,16 @@
 import React from "react";
 import GoSimulate from "../../components/buttons/goSimulate";
 import Code from "../../components/code/Code";
+import HeadSeo from "../../components/seo/Head";
 const LorenzSimulations = () => {
+  const seo = {
+    title: "Lorenz Attractor",
+    description:
+      "The Lorenz system is a system of ordinary differential equations first studied by Edward Lorenz. It is notable for having chaotic solutions for certain parameter values and initial conditions.",
+  };
   return (
     <div className="container">
+      <HeadSeo title={seo.title} description={seo.description}></HeadSeo>
       <div className="flex center">
         <GoSimulate text="Go Simulation" name="lorenz" />
       </div>
@@ -51,8 +58,7 @@ const LorenzSimulations = () => {
         slow, speed = 1 is the normal speed.
       </p>
       <Code>
-        {`const particle = this.particles[i];
-const dx = particle.a * (particle.y - particle.x) * particle.dt;
+        {`const dx = particle.a * (particle.y - particle.x) * particle.dt;
 const dy =
 (particle.x * (particle.b - particle.z) - particle.y) * particle.dt;
 const dz =
