@@ -3,12 +3,12 @@ import useSimulation from "../../../../hooks/useSimulation";
 import { InputGui, ItemGui } from "../styles.gui";
 
 const SpeedGiu = () => {
-  const { attractor, config } = useSimulation();
+  const { system, config } = useSimulation();
   const [speed, setSpeed] = React.useState(config.speed);
   const changeSpeed = (e: SyntheticEvent<HTMLInputElement>) => {
     const value = parseFloat(e.currentTarget.value);
     setSpeed(value);
-    attractor.changeSpeed(value);
+    system.changeSpeed(value);
   };
   return (
     <ItemGui>
