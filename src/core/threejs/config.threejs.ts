@@ -1,4 +1,4 @@
-import { BufferGeometry, Line, Points, PointsMaterial, Shape } from "three";
+import { BufferGeometry, Points, PointsMaterial } from "three";
 import ParticleSystem from "../systems/config/system";
 import { CAMERA, RENDERER, SCENE } from "./globals.three";
 import { getOrbitControl, OrbitControlConfig } from "./orbitControl.config";
