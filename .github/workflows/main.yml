@@ -14,7 +14,6 @@ jobs:
         run: yarn install
       - name: build
         run: yarn build
-      - uses:
       - name: deploy
         if: ${{ github.ref == 'refs/heads/dev' }}
         run: |
