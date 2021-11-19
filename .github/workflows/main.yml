@@ -2,9 +2,11 @@ name: ci-cd
 "on":
   push:
     branches:
+      - "*"
   pull_request:
     branches:
       - main
+
 jobs:
   main:
     runs-on: ubuntu-latest
