@@ -15,6 +15,7 @@ const Simulation = () => {
     stop: () => {},
     changeColor: () => {},
     changeOpacity: () => {},
+    takePhoto: () => {},
   });
   const router = useRouter();
   const ValidateNameParam = (): string | false => {

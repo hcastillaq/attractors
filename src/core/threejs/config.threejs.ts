@@ -109,11 +109,13 @@ export const AnimationParticles = function (
     RENDERER.render(SCENE, CAMERA);
     RENDERER.domElement.toBlob(
       function (blob) {
-        var a = document.createElement("a");
-        var url = URL.createObjectURL(blob);
-        a.href = url;
-        a.download = "particles.png";
-        a.click();
+        if (blob !== null) {
+          var a = document.createElement("a");
+          var url = URL.createObjectURL(blob);
+          a.href = url;
+          a.download = "particles.png";
+          a.click();
+        }
       },
       "image/png",
       1
