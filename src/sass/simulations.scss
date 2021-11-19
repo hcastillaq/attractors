@@ -1,0 +1,17 @@
+.simulations-list {
+  ul {
+    list-style: none;
+    li {
+      margin: 20px 20px;
+    }
+  }
+  .simulation-item {
+    cursor: pointer;
+    strong {
+      font-size: 1.2rem;
+    }
+    p {
+      margin-top: 10px;
+    }
+  }
+}

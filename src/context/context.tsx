@@ -1,10 +1,10 @@
 import { createContext } from "react";
-import { AnimationParticlesCallBacks } from "../threejs/config.threejs";
+import { AnimationParticlesCallBacks } from "../core/threejs/config.threejs";
 
 export type ContextType = {
   animation: AnimationParticlesCallBacks;
-  attractor: string;
-  setAttractor: (attractor: string) => void;
+  system: string;
+  setSystem: (system: string) => void;
   isSelecting: boolean;
   setIsSelecting: (isSelecting: boolean) => void;
   setAnimation: (animation: AnimationParticlesCallBacks) => void;
@@ -17,9 +17,9 @@ const initialContext: ContextType = {
     changeColor: () => {},
     changeOpacity: () => {},
   },
-  attractor: "",
+  system: "",
   isSelecting: true,
-  setAttractor: () => {},
+  setSystem: () => {},
   setIsSelecting: () => {},
   setAnimation: () => {},
 };
