@@ -40,7 +40,7 @@ export const LorenzAttractorConfig: SystemAndConfig = {
   system: new LorenzAttractor(),
   name: "Lorenz Attractor",
   config: {
-    particles: 2000000,
+    particles: 1000000,
     zoom: 100,
     speed: 1,
     sizeParticle: 0.1,

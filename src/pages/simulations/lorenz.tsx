@@ -10,7 +10,11 @@ const LorenzSimulations = () => {
       <h1>Lorenz Attractor</h1>
       <div>
         More information in{" "}
-        <a href="https=//en.wikipedia.org/wiki/Lorenz_system" className="link">
+        <a
+          href="\\wikipedia.org/wiki/Lorenz_system"
+          target="_blank"
+          className="link"
+        >
           wikipedia
         </a>
       </div>
