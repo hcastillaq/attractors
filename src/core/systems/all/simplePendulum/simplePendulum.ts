@@ -19,8 +19,10 @@ class SimplePendulum extends ParticleSystem {
       const particle = this.particles[i];
       particle.x = particle.l * Math.sin(particle.angle);
       particle.y = -particle.l * Math.cos(particle.angle) + 0.99;
-      const angleA = -(particle.g / particle.l) * Math.sin(particle.angle);
-      particle.angleV += angleA;
+      particle.z = particle.l * (1 - Math.cos(particle.angle));
+      const anularAcceleration =
+        -(particle.g / particle.l) * Math.sin(particle.angle);
+      particle.angleV += anularAcceleration;
       particle.angle += particle.angleV;
       this.geometry.attributes.position.setXYZ(
         i,
