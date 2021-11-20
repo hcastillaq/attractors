@@ -10,7 +10,7 @@ class SimplePendulum extends ParticleSystem {
       l: this.random(0.1, 2),
       angle: this.random(-Math.PI / 2, Math.PI / 2),
       angleV: 0,
-      g: 0.001,
+      g: 0.0001,
     };
   }
 
