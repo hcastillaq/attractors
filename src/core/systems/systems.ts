@@ -4,13 +4,14 @@ import { LorenzAttractorConfig } from "./all/lorenz/lorenz.attractor";
 import { ThomasAttractorConfig } from "./all/thomas/thomas.attractor";
 import { DadrasAttractorConfig } from "./all/dadras/dadras.attractor";
 import { ChenAttractorConfig } from "./all/chen/chen.attractor";
+import { SimplePendulumAndConfig } from "./all/simplePendulum/simplePendulum";
 
 export type SystemConfig = {
   particles: number;
   zoom: number;
   sizeParticle: number;
   autoRotate: boolean;
-  description: string;
+  description?: string;
   speed: number;
 };
 export type SystemAndConfig = {
@@ -25,4 +26,5 @@ export const SYSTEMS: { [key: string]: SystemAndConfig } = {
   thomas: { ...ThomasAttractorConfig },
   dadras: { ...DadrasAttractorConfig },
   chen: { ...ChenAttractorConfig },
+  simplePendulum: { ...SimplePendulumAndConfig },
 };
