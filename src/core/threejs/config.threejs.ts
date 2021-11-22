@@ -56,7 +56,8 @@ export const AnimationParticles = function (
   // Points
   const points = new Points(geometry, material);
   SCENE.add(points);
-
+  config.system.setScene(SCENE);
+  config.system.setup();
   // Resize
   const resize = () => {
     CAMERA.aspect = window.innerWidth / window.innerHeight;
