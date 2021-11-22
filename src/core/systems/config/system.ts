@@ -90,6 +90,10 @@ abstract class ParticleSystem {
     this.maxParticles = 0;
     this.speed = 1;
   }
+
+  protected randomItemInArray(array: any[]): any {
+    return array[Math.floor(Math.random() * array.length)];
+  }
 }
 
 export default ParticleSystem;
