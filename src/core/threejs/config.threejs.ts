@@ -1,4 +1,11 @@
-import { BufferGeometry, Line, Points, PointsMaterial, Shape } from "three";
+import {
+  BufferGeometry,
+  Line,
+  Points,
+  PointsMaterial,
+  Scene,
+  Shape,
+} from "three";
 import ParticleSystem from "../systems/config/system";
 import { CAMERA, RENDERER, SCENE } from "./globals.three";
 import { getOrbitControl, OrbitControlConfig } from "./orbitControl.config";
@@ -56,7 +63,8 @@ export const AnimationParticles = function (
   // Points
   const points = new Points(geometry, material);
   SCENE.add(points);
-
+  config.system.setScene(SCENE);
+  config.system.setup();
   // Resize
   const resize = () => {
     CAMERA.aspect = window.innerWidth / window.innerHeight;

@@ -5,6 +5,7 @@ import { ThomasAttractorConfig } from "./all/thomas/thomas.attractor";
 import { DadrasAttractorConfig } from "./all/dadras/dadras.attractor";
 import { ChenAttractorConfig } from "./all/chen/chen.attractor";
 import { SimplePendulumAndConfig } from "./all/simplePendulum/simplePendulum";
+import { SphericalPendulumAndConfig } from "./all/spherical-pendulum/speherical-pendulum";
 
 export type SystemConfig = {
   particles: number;
@@ -27,4 +28,5 @@ export const SYSTEMS: { [key: string]: SystemAndConfig } = {
   dadras: { ...DadrasAttractorConfig },
   chen: { ...ChenAttractorConfig },
   simplePendulum: { ...SimplePendulumAndConfig },
+  sphericalPendulum: { ...SphericalPendulumAndConfig },
 };

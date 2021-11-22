@@ -1,4 +1,4 @@
-import { BufferGeometry, Float32BufferAttribute } from "three";
+import { BufferGeometry, Float32BufferAttribute, Scene } from "three";
 
 export type ParticleInParticleSystem = { [key: string]: number };
 abstract class ParticleSystem {
@@ -6,6 +6,7 @@ abstract class ParticleSystem {
   public maxParticles: number = 0;
   protected geometry: BufferGeometry = new BufferGeometry();
   protected speed: number = 1;
+  protected scene: Scene = new Scene();
 
   public abstract update(): void;
   protected abstract makeParticle(): ParticleInParticleSystem;
@@ -94,6 +95,12 @@ abstract class ParticleSystem {
   protected randomItemInArray(array: any[]): any {
     return array[Math.floor(Math.random() * array.length)];
   }
+
+  public setScene(scene: Scene) {
+    this.scene = scene;
+  }
+
+  public setup() {}
 }
 
 export default ParticleSystem;
