@@ -8,7 +8,7 @@ class SimplePendulum extends ParticleSystem {
       x: 0,
       y: 0,
       z: 0,
-      l: this.l[Math.floor(Math.random() * this.l.length)],
+      l: this.randomItemInArray(this.l),
       angle: this.random(-Math.PI / 2, Math.PI / 2),
       angle2: this.random(-Math.PI, Math.PI),
       angleV: 0,
