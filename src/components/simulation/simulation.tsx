@@ -10,6 +10,7 @@ import FactoryAttractorInstance from "../../core/systems/config/factory.system";
 const Simulation = () => {
   const [isSelecting, setIsSelecting] = useState<boolean>(true);
   const [system, setSystem] = useState<string>("");
+
   const [animation, setAnimation] = useState<AnimationParticlesCallBacks>({
     start: () => {},
     stop: () => {},
@@ -17,7 +18,9 @@ const Simulation = () => {
     changeOpacity: () => {},
     takePhoto: () => {},
   });
+
   const router = useRouter();
+
   const ValidateNameParam = (): string | false => {
     const { query } = router;
     if (query.name) {
@@ -25,6 +28,7 @@ const Simulation = () => {
     }
     return false;
   };
+
   useEffect(() => {
     const param = ValidateNameParam();
     if (param) {
@@ -37,6 +41,7 @@ const Simulation = () => {
       }
     }
   }, []);
+
   const handleShowComponent = (): JSX.Element => {
     if (isSelecting) {
       return <SelectAttractor />;
@@ -52,6 +57,7 @@ const Simulation = () => {
     animation,
     setAnimation,
   };
+
   return (
     <Context.Provider value={contextValue}>
       <SimulationStyles>{handleShowComponent()}</SimulationStyles>
