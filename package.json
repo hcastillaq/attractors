@@ -22,5 +22,8 @@
     "styled-components": "^5.3.3",
     "three": "^0.134.0",
     "typescript": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3"
   }
 }
