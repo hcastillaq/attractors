@@ -1,12 +1,10 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import HeadSeo from "../components/seo/Head";
-const DynamicComponentWithNoSSR = dynamic(
-  () => import("../components/simulation/simulation"),
-  {
-    ssr: false,
-  }
-);
+
+const Simulator = dynamic(() => import("../components/simulation/simulation"), {
+  ssr: false,
+});
 
 export default () => {
   const seo = {
@@ -17,7 +15,7 @@ export default () => {
   return (
     <>
       <HeadSeo title={seo.title} description={seo.description}></HeadSeo>
-      <DynamicComponentWithNoSSR />
+      <Simulator />
     </>
   );
 };
