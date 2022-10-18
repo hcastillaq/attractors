@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "tsc && next build && next export -o dist",
+    "postbuild": "next-sitemap",
     "serve": "next start"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
     "@types/three": "^0.134.0",
     "mathjax-react": "^1.0.6",
     "next": "latest",
+    "next-sitemap": "^3.1.28",
     "node-sass": "^7.0.1",
     "react": "latest",
     "react-dom": "latest",
