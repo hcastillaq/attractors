@@ -1,4 +1,3 @@
-import React from "react";
 import useSimulation from "../../../../hooks/useSimulation";
 import { InputGui, ItemGui } from "../styles.gui";
 
@@ -9,7 +8,7 @@ const TakePhoto = () => {
   };
   return (
     <ItemGui>
-      <InputGui type="button" value="Take a Photo" onClick={handleClick} />
+      <InputGui type="button" value="Take  Photo" onClick={handleClick} />
     </ItemGui>
   );
 };

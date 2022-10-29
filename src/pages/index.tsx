@@ -1,9 +1,7 @@
-import React from "react";
 import Link from "next/link";
-import Head from "next/head";
 import GoSimulate from "../components/buttons/goSimulate";
-import DB from "./../db/simulations.json";
 import HeadSeo from "../components/seo/Head";
+import DB from "./../db/simulations.json";
 
 function index() {
   const { simulations } = DB;
@@ -16,7 +14,7 @@ function index() {
     <div className="container">
       <HeadSeo title={seo.title} description={seo.description}></HeadSeo>
       <header className="flex center column">
-        <h1>Generative Art With Particles</h1>
+        <h1 className="center">Generative Art With Particles</h1>
         <GoSimulate />
       </header>
 

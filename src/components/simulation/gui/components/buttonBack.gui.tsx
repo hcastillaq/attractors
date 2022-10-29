@@ -1,13 +1,12 @@
-import React from "react";
 import styled from "styled-components";
 import useSimulation from "../../../../hooks/useSimulation";
 
 export const Btn = styled.button`
-  height: 40px;
+  height: 50px;
   cursor: pointer;
   border: none;
   padding: 0px 10px;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const ButtonBackGui = () => {

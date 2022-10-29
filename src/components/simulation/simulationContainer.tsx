@@ -1,21 +1,27 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import useSimulation from "../../hooks/useSimulation";
 import {
   AnimationParticles,
-  AnimationParticlesCallBacks,
   SystemAnimateConfig,
 } from "../../core/threejs/config.threejs";
+import useSimulation from "../../hooks/useSimulation";
 import AttractorGui from "./gui/attractorGui";
 
 const AttractorContainer = styled.div`
   cursor: crosshair;
 `;
 
+const ShowGui = styled.button`
+  top: 10px;
+  right: 20px;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+`;
 const SimulationContainer = () => {
   const { system, config, color, setAnimation, opacity } = useSimulation();
   const ref = useRef(null);
-
+  const [showGui, setShowGui] = useState<boolean>(false);
   useEffect(() => {
     let stop = () => {};
     if (ref.current) {
@@ -55,7 +61,14 @@ const SimulationContainer = () => {
 
   return (
     <div>
-      <AttractorGui />
+      <ShowGui
+        onClick={() => {
+          setShowGui(!showGui);
+        }}
+      >
+        ⚙️
+      </ShowGui>
+      {showGui ? <AttractorGui /> : null}
       <AttractorContainer ref={ref}></AttractorContainer>
     </div>
   );

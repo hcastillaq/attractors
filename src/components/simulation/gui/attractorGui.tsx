@@ -1,22 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { InputGui, ItemGui } from "./styles.gui";
-import ParticlesGui from "./components/particles.gui";
 import ButtonBackGui from "./components/buttonBack.gui";
-import SpeedGiu from "./components/speed.gui";
 import ColorGui from "./components/color.gui";
 import OpacityGiu from "./components/opacity.gui";
+import ParticlesGui from "./components/particles.gui";
+import SpeedGiu from "./components/speed.gui";
 import TakePhoto from "./components/takePhoto.gui";
 
 const AttractorGuiStyles = styled.div`
-  width: 300px;
+  width: 20vw;
+  max-width: 200px;
+  min-width: 180px;
+  padding: 20px;
+  height: fit-content;
   position: absolute;
-  top: 10px;
+  top: 60px;
   right: 30px;
   display: flex;
   flex-direction: column;
-  background-color: #00000071;
-  padding: 20px;
+  background-color: #20202088;
+  overflow: hidden;
 `;
 
 const AttractorGui = () => {

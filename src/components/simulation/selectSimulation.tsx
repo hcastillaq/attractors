@@ -1,7 +1,7 @@
-import React, { SyntheticEvent, useContext } from "react";
+import { SyntheticEvent, useContext } from "react";
 import styled from "styled-components";
-import { SYSTEMS } from "../../core/systems/systems";
 import { Context } from "../../context/context";
+import { SYSTEMS } from "../../core/systems/systems";
 
 const Select = styled.select`
   height: 50px;
@@ -23,7 +23,7 @@ const Form = styled.form`
 const H1 = styled.h1`
   &,
   span {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 1vw, 3rem);
   }
   display: flex;
   flex-direction: column;

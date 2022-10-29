@@ -1,20 +1,15 @@
-import React, { SyntheticEvent, useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import styled from "styled-components";
 import useSimulation from "../../../../hooks/useSimulation";
-import { InputGui, ItemGui } from "../styles.gui";
 
-const BtnColor = styled(InputGui)`
-  height: 40px;
-  width: 40px;
-  padding: 0px;
+const BtnColor = styled.input`
+  height: 30px;
+  width: 30px !important;
+  padding: 0px !important;
   overflow: hidden;
-`;
-
-const ColorGuiStyles = styled(ItemGui)`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 `;
 
 const ColorGui = () => {
@@ -50,10 +45,10 @@ const ColorGui = () => {
   };
 
   return (
-    <ColorGuiStyles>
+    <div className="flex justify-end items-center">
+      <span className="mr1">{color}</span>
       <BtnColor type="color" value={color} onChange={handleChange} />
-      {color}
-    </ColorGuiStyles>
+    </div>
   );
 };
 
