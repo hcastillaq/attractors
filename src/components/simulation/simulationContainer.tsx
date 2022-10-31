@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { GuiContext } from "../../context/guiContext";
 import {
   AnimationParticles,
   SystemAnimateConfig,
@@ -22,6 +23,12 @@ const SimulationContainer = () => {
   const { system, config, color, setAnimation, opacity } = useSimulation();
   const ref = useRef(null);
   const [showGui, setShowGui] = useState<boolean>(false);
+
+  const [color_, setColor] = useState(color);
+  const [opacity_, setOpacity] = useState(opacity);
+  const [particles, setParticles] = useState(config.particles);
+  const [speed, setSpeed] = useState(config.speed);
+
   useEffect(() => {
     let stop = () => {};
     if (ref.current) {
@@ -68,7 +75,20 @@ const SimulationContainer = () => {
       >
         ⚙️
       </ShowGui>
-      {showGui ? <AttractorGui /> : null}
+      <GuiContext.Provider
+        value={{
+          color: color_,
+          setColor,
+          opacity: opacity_,
+          setOpacity,
+          particles,
+          setParticles,
+          speed,
+          setSpeed,
+        }}
+      >
+        {showGui ? <AttractorGui /> : null}
+      </GuiContext.Provider>
       <AttractorContainer ref={ref}></AttractorContainer>
     </div>
   );

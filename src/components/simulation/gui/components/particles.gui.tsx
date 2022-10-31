@@ -1,23 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useDebounce } from "../../../../hooks/useDebounce";
+import React, { useContext } from "react";
+import { GuiContext } from "../../../../context/guiContext";
 import useSimulation from "../../../../hooks/useSimulation";
 import { InputGui, ItemGui } from "../styles.gui";
 
 const ParticlesGui = () => {
-  const { system, config } = useSimulation();
-  const [particles, setParticles] = useState(config.particles);
-  const debounceParticles = useDebounce(particles, 500);
-
-  useEffect(() => {
-    if (!isNaN(debounceParticles)) {
-      system.changeMaxParticles(debounceParticles);
-    }
-  }, [debounceParticles]);
+  const { system } = useSimulation();
+  const { particles, setParticles } = useContext(GuiContext);
 
   const handleParticlesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
-    if (value !== NaN) {
-    }
+    system.changeMaxParticles(value);
     setParticles(value);
   };
 
