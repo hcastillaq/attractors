@@ -15,8 +15,8 @@ export const defaultMeta: Meta = {
 	keywords:
 		"generative art, attractors, particles, art, generative, simulation",
 	title: "Generative Art With Particles",
-	image: "https://gartsimulation.com/images/particles.png",
-	url: "https://gartsimulation.com",
+	image: `${process.env.domain}/images/particles.png`,
+	url: process.env.domain,
 	type: "website",
 };
 

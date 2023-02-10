@@ -1,12 +1,9 @@
 import GoSimulate from "../../components/buttons/goSimulate";
 import Code from "../../components/code/Code";
 import HeadSeo, { defaultMeta } from "../../components/seo/Head";
+import { articles } from "../../db/articles";
 const LorenzSimulations = () => {
-	const seo = {
-		title: "Lorenz Attractor",
-		description:
-			"The Lorenz system is a system of ordinary differential equations first studied by Edward Lorenz. It is notable for having chaotic solutions for certain parameter values and initial conditions.",
-	};
+	const seo = articles.find((article: any) => article.slug === "lorenz");
 	return (
 		<div className="container">
 			<HeadSeo
@@ -14,6 +11,8 @@ const LorenzSimulations = () => {
 					...defaultMeta,
 					title: seo.title,
 					description: seo.description,
+					image: defaultMeta.url + seo.image,
+					url: `${defaultMeta.url}/articles/lorenz`,
 				}}
 			/>
 			<div className="flex center">
