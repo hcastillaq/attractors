@@ -1,28 +1,24 @@
+import { ParticleSystemAnimationCallbacks } from "particle-system";
 import { createContext } from "react";
-import { AnimationParticlesCallBacks } from "../core/threejs/config.threejs";
 
 export type ContextType = {
-  animation: AnimationParticlesCallBacks;
-  system: string;
-  setSystem: (system: string) => void;
-  isSelecting: boolean;
-  setIsSelecting: (isSelecting: boolean) => void;
-  setAnimation: (animation: AnimationParticlesCallBacks) => void;
+	animation: ParticleSystemAnimationCallbacks;
+	system: string;
+	setSystem: (system: string) => void;
+	setAnimation: (animation: ParticleSystemAnimationCallbacks) => void;
 };
 
 const initialContext: ContextType = {
-  animation: {
-    start: () => {},
-    stop: () => {},
-    changeColor: () => {},
-    changeOpacity: () => {},
-    takePhoto: () => {},
-  },
-  system: "",
-  isSelecting: true,
-  setSystem: () => {},
-  setIsSelecting: () => {},
-  setAnimation: () => {},
+	animation: {
+		start: () => {},
+		stop: () => {},
+		changeColor: () => {},
+		changeOpacity: () => {},
+		takePhoto: () => {},
+	},
+	system: "",
+	setSystem: () => {},
+	setAnimation: () => {},
 };
 
 export const Context = createContext<ContextType>(initialContext);

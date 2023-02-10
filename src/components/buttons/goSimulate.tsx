@@ -1,17 +1,18 @@
-import React from "react";
 import Link from "next/link";
 
 type Props = {
-  text?: string;
-  name?: string;
+	text?: string;
+	name?: string;
 };
 const GoSimulate = (props: Props) => {
-  const path = "/simulator" + (props.name ? "?name=" + props.name : "");
-  return (
-    <Link href={path}>
-      <a className="go-simulator">{props.text ? props.text : "go simulator"}</a>
-    </Link>
-  );
+	const path = `/simulations/${props.name || ""}`;
+	return (
+		<Link href={path}>
+			<span className="go-simulator">
+				{props.text ? props.text : "go simulator"}
+			</span>
+		</Link>
+	);
 };
 
 export default GoSimulate;

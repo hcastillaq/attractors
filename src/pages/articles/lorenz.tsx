@@ -1,6 +1,6 @@
 import GoSimulate from "../../components/buttons/goSimulate";
 import Code from "../../components/code/Code";
-import HeadSeo from "../../components/seo/Head";
+import HeadSeo, { defaultMeta } from "../../components/seo/Head";
 const LorenzSimulations = () => {
 	const seo = {
 		title: "Lorenz Attractor",
@@ -9,7 +9,13 @@ const LorenzSimulations = () => {
 	};
 	return (
 		<div className="container">
-			<HeadSeo title={seo.title} description={seo.description} />
+			<HeadSeo
+				meta={{
+					...defaultMeta,
+					title: seo.title,
+					description: seo.description,
+				}}
+			/>
 			<div className="flex center">
 				<GoSimulate text="Go Simulation" name="lorenz" />
 			</div>

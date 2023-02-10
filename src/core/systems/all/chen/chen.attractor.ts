@@ -1,8 +1,8 @@
-import ParticleSystem from "../../config/system";
+import { ParticleSystem } from "particle-system";
 import { SystemAndConfig } from "../../systems";
 
 class ChenAttractor extends ParticleSystem {
-	makeParticle() {
+	make() {
 		return {
 			x: 5,
 			y: 10,
@@ -15,7 +15,7 @@ class ChenAttractor extends ParticleSystem {
 	}
 
 	update() {
-		for (let i = 0; i < this.maxParticles; i++) {
+		for (let i = 0; i < this.numberParticles; i++) {
 			const particle = this.particles[i];
 
 			const dx = particle.a * particle.x - particle.y * particle.z;
@@ -26,12 +26,7 @@ class ChenAttractor extends ParticleSystem {
 			particle.y += dy * particle.dt * this.speed;
 			particle.z += dz * particle.dt * this.speed;
 
-			this.geometry.attributes.position.setXYZ(
-				i,
-				particle.x,
-				particle.y,
-				particle.z,
-			);
+			this.apply(i, particle.x, particle.y, particle.z);
 		}
 	}
 }

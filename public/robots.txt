@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://attractors-4ada9.web.app/
+Host: https://g-art.vercel.app/
 
 # Sitemaps
-Sitemap: https://attractors-4ada9.web.app/sitemap.xml
+Sitemap: https://g-art.vercel.app/sitemap.xml

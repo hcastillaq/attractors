@@ -1,6 +1,6 @@
 import ArticlesList from "../components/articles-list/articles-list";
 import GoSimulate from "../components/buttons/goSimulate";
-import HeadSeo from "../components/seo/Head";
+import HeadSeo, { defaultMeta } from "../components/seo/Head";
 import { articles } from "../db/articles";
 
 function index() {
@@ -11,7 +11,7 @@ function index() {
 	};
 	return (
 		<div className="container">
-			<HeadSeo title={seo.title} description={seo.description} />
+			<HeadSeo meta={{ ...defaultMeta }} />
 			<header className="flex center column">
 				<h1 className="center">Generative Art With Particles</h1>
 				<GoSimulate />

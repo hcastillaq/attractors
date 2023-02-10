@@ -1,12 +1,13 @@
+import {
+	ParticleSystemAnimation,
+	ParticleSystemAnimationConfig,
+} from "particle-system";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { GuiContext } from "../../context/guiContext";
-import {
-	AnimationParticles,
-	SystemAnimateConfig,
-} from "../../core/threejs/config.threejs";
 import useSimulation from "../../hooks/useSimulation";
 import AttractorGui from "./gui/attractorGui";
+import { numberToString } from "./gui/components/color.gui";
 
 const AttractorContainer = styled.div`
   cursor: crosshair;
@@ -33,19 +34,19 @@ const SimulationContainer = () => {
 		let stop = () => {};
 		if (ref.current) {
 			// config attractor
-			system.setMaxParticles(config.particles);
+			system.setParticlesNumber(config.particles);
 			system.setSpeed(config.speed);
 
 			//config for animation
 			const node: HTMLElement = ref.current as HTMLElement;
-			const newConfig: SystemAnimateConfig = {
+			const newConfig: ParticleSystemAnimationConfig = {
 				system,
 				material: {
-					color: color,
+					color: numberToString(color_),
 					sizeParticle: config.sizeParticle,
 					opacity: opacity,
 				},
-				parentNode: node,
+				container: node,
 				zoom: config.zoom,
 				orbitConfig: {
 					autoRotate: config.autoRotate,
@@ -53,7 +54,7 @@ const SimulationContainer = () => {
 			};
 
 			// start animation
-			const animation = AnimationParticles(newConfig);
+			const animation = ParticleSystemAnimation(newConfig);
 
 			setAnimation({ ...animation });
 
