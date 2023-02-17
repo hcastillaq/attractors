@@ -46,14 +46,18 @@ export default Index;
 
 export const getStaticPaths = async () => {
 	const articles = await ArticlesService.getArticles();
-	const paths = articles.map((article: any) => ({
-		params: { slug: article.slug },
-	}));
+	try {
+		const paths = articles.map((article: any) => ({
+			params: { slug: article.slug },
+		}));
 
-	return {
-		paths: paths,
-		fallback: "blocking",
-	};
+		return {
+			paths: paths,
+			fallback: "blocking",
+		};
+	} catch (error) {
+		return { paths: [], fallback: "blocking" };
+	}
 };
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
