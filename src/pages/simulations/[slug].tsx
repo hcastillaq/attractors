@@ -38,7 +38,7 @@ const SimulationsPage: NextPage<Props> = ({ slug }) => {
 					title: simulation.title,
 					description: simulation.description,
 					url: `${defaultMeta.url}/simulations/${slug}`,
-					image: defaultMeta.url + simulation.image,
+					image: simulation.image,
 				}}
 			/>
 			<Context.Provider value={context}>

@@ -1,9 +1,14 @@
+import { NextPage } from "next";
 import ArticlesList from "../components/articles-list/articles-list";
 import GoSimulate from "../components/buttons/goSimulate";
 import HeadSeo, { defaultMeta } from "../components/seo/Head";
-import { articles } from "../db/articles";
+import { Article } from "../interfaces/article.interface";
+import { ArticlesService } from "../services/articles.service";
 
-function index() {
+interface Props {
+	articles: Article[];
+}
+const index: NextPage<Props> = ({ articles }) => {
 	const seo = {
 		title: "Generative Art With Particles",
 		description: `Here find you multiples simulations where you watch the movement of many
@@ -27,6 +32,21 @@ function index() {
 			<ArticlesList articles={articles} />
 		</div>
 	);
-}
+};
 
 export default index;
+
+export const getStaticProps = async () => {
+	let articles = [];
+	try {
+		articles = await ArticlesService.getArticles();
+	} catch (error) {
+		console.log(error);
+	}
+	return {
+		props: {
+			articles,
+		},
+		revalidate: 300,
+	};
+};

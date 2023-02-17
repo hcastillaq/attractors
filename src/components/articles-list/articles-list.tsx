@@ -9,9 +9,9 @@ const ArticlesList: FC<Props> = ({ articles }) => {
 	return (
 		<div className="articles-list">
 			<ul>
-				{articles.map((article, index) => (
+				{articles.map((article) => (
 					<li key={article.title}>
-						<Link href={article.path}>
+						<Link href={`/articles/${article.slug}`}>
 							<div className="articles-item">
 								<strong>{article.title}</strong>
 								<p>{article.description}</p>
