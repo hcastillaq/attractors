@@ -1,4 +1,4 @@
-import { GetStaticPropsContext, NextPage } from "next";
+import { GetStaticPropsContext } from "next";
 import Link from "next/link";
 import Showdown from "showdown";
 import GoSimulate from "../../components/buttons/goSimulate";
@@ -10,7 +10,7 @@ interface Props {
 	article: Article;
 }
 
-export const Index: NextPage<Props> = ({ article }) => {
+export default function ({ article }: Props) {
 	const converter = new Showdown.Converter();
 
 	return (
@@ -41,9 +41,7 @@ export const Index: NextPage<Props> = ({ article }) => {
 			/>
 		</div>
 	);
-};
-
-export default Index;
+}
 
 export async function getStaticProps(context: GetStaticPropsContext) {
 	const slug = context.params?.slug;
@@ -57,7 +55,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 		props: {
 			article: article,
 		},
-		revalidate: 60,
+		revalidate: 10,
 	};
 }
 

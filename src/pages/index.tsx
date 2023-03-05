@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import ArticlesList from "../components/articles-list/articles-list";
 import GoSimulate from "../components/buttons/goSimulate";
 import HeadSeo, { defaultMeta } from "../components/seo/Head";
@@ -7,12 +6,7 @@ import { Article } from "../interfaces/article.interface";
 interface Props {
 	articles: Article[];
 }
-const index: NextPage<Props> = ({ articles }) => {
-	const seo = {
-		title: "Generative Art With Particles",
-		description: `Here find you multiples simulations where you watch the movement of many
-    particles, expressed for mathematical equations or physics phenomenons.`,
-	};
+export default function ({ articles }: Props) {
 	return (
 		<div className="container">
 			<HeadSeo meta={{ ...defaultMeta }} />
@@ -31,11 +25,9 @@ const index: NextPage<Props> = ({ articles }) => {
 			<ArticlesList articles={articles} />
 		</div>
 	);
-};
+}
 
-export default index;
-
-export const getStaticProps = async () => {
+export async function getStaticProps() {
 	let articles: Article[] = [];
 	try {
 		const path = `${process.env.api}/articles`;
@@ -48,6 +40,6 @@ export const getStaticProps = async () => {
 		props: {
 			articles,
 		},
-		revalidate: 60,
+		revalidate: 10,
 	};
-};
+}

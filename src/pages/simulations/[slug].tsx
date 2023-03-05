@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPropsContext, NextPage } from "next";
+import { GetStaticPropsContext } from "next";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import HeadSeo, { defaultMeta } from "../../components/seo/Head";
@@ -14,7 +14,7 @@ const Simulation = dynamic(
 	() => import("./../../components/simulation/simulationContainer"),
 	{ ssr: false },
 );
-const SimulationsPage: NextPage<Props> = ({ slug }) => {
+export default function ({ slug }: Props) {
 	const [system, setSystem] = useState(slug);
 	const [animation, setAnimation] = useState<any>({
 		start: () => {},
@@ -48,23 +48,9 @@ const SimulationsPage: NextPage<Props> = ({ slug }) => {
 			</Context.Provider>
 		</>
 	);
-};
+}
 
-export default SimulationsPage;
-
-export const getStaticPaths = async () => {
-	const paths = Object.keys(SIMULATIONS).map((name) => ({
-		params: { slug: name },
-	}));
-	return {
-		paths,
-		fallback: "blocking",
-	};
-};
-
-export const getStaticProps: GetStaticProps = async (
-	context: GetStaticPropsContext,
-) => {
+export async function getStaticProps(context: GetStaticPropsContext) {
 	const slug = (context.params?.slug || "") as string;
 	const names = Object.keys(SIMULATIONS).map((name) =>
 		name.toLocaleLowerCase(),
@@ -78,6 +64,16 @@ export const getStaticProps: GetStaticProps = async (
 		props: {
 			slug,
 		},
-		revalidate: 300,
+		revalidate: 10,
 	};
-};
+}
+
+export async function getStaticPaths() {
+	const paths = Object.keys(SIMULATIONS).map((name) => ({
+		params: { slug: name },
+	}));
+	return {
+		paths,
+		fallback: "blocking",
+	};
+}
