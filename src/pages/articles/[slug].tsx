@@ -44,7 +44,23 @@ export const Index: NextPage<Props> = ({ article }) => {
 
 export default Index;
 
-export const getStaticPaths = async () => {
+export async function getStaticProps(context: GetStaticPropsContext) {
+	const slug = context.params?.slug;
+	const article = await ArticlesService.getArticleBySlug(slug as string);
+	if (!article) {
+		return {
+			notFound: true,
+		};
+	}
+	return {
+		props: {
+			article: article,
+		},
+		revalidate: 60,
+	};
+}
+
+export async function getStaticPaths() {
 	try {
 		const articles = await ArticlesService.getArticles();
 		const paths = articles.map((article: any) => ({
@@ -57,23 +73,6 @@ export const getStaticPaths = async () => {
 		};
 	} catch (error) {
 		console.log(error);
-
 		return { paths: [], fallback: "blocking" };
 	}
-};
-
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-	const slug = context.params?.slug;
-	const article = await ArticlesService.getArticleBySlug(slug as string);
-	if (!article) {
-		return {
-			notFound: true,
-		};
-	}
-	return {
-		props: {
-			article: article,
-		},
-		revalidate: 300,
-	};
-};
+}
