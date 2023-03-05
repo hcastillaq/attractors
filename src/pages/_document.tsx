@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
 				<Head>
 					<meta
 						name="google-site-verification"
-						content="ElaVgP7AeT3eWe15NIfHZhMzSUEQqUsQFyUJ4y7TdxA"
+						content="rFpRiy7049wtAKzHs7HZg1Afb6QBM_Ufx2oLc_zg3vE"
 					/>
 
 					<Script
