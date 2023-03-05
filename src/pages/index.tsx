@@ -3,7 +3,6 @@ import ArticlesList from "../components/articles-list/articles-list";
 import GoSimulate from "../components/buttons/goSimulate";
 import HeadSeo, { defaultMeta } from "../components/seo/Head";
 import { Article } from "../interfaces/article.interface";
-import { ArticlesService } from "../services/articles.service";
 
 interface Props {
 	articles: Article[];
@@ -37,9 +36,11 @@ const index: NextPage<Props> = ({ articles }) => {
 export default index;
 
 export const getStaticProps = async () => {
-	let articles = [];
+	let articles: Article[] = [];
 	try {
-		articles = await ArticlesService.getArticles();
+		const path = `${process.env.api}/articles`;
+		const res = await fetch(path);
+		articles = await res.json();
 	} catch (error) {
 		console.log(error);
 	}

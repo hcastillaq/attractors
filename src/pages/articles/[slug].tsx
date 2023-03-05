@@ -34,6 +34,7 @@ export const Index: NextPage<Props> = ({ article }) => {
 			</div>
 
 			<div
+				className="article-container"
 				dangerouslySetInnerHTML={{
 					__html: converter.makeHtml(article.content as string),
 				}}
