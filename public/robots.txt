@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://g-art.vercel.app/
+Host: https://www.gartsimulation.com
 
 # Sitemaps
-Sitemap: https://g-art.vercel.app/sitemap.xml
+Sitemap: https://www.gartsimulation.com/sitemap.xml
