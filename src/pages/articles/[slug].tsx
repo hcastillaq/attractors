@@ -20,7 +20,7 @@ export const Index: NextPage<Props> = ({ article }) => {
 					...defaultMeta,
 					title: article.title,
 					description: article.description,
-					image: article.image,
+					image: `${defaultMeta.url}/${article.image}`,
 					url: `${defaultMeta.url}/articles/${article.slug}`,
 				}}
 			/>
