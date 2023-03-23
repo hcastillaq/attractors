@@ -2814,10 +2814,10 @@ parse-json@^5.0.0:
     json-parse-even-better-errors "^2.3.0"
     lines-and-columns "^1.1.6"
 
-particle-system@^0.0.13:
-  version "0.0.13"
-  resolved "https://registry.npmjs.org/particle-system/-/particle-system-0.0.13.tgz"
-  integrity sha512-I3DjkkdoB2obOU1ZobbF+PiCws59RdU5kZ86af6pSbfczYlxnI8C7Nqb0fuKa/fftiKiJG7ZGvpzKJ9V36T+Ag==
+particle-system@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.npmjs.org/particle-system/-/particle-system-0.0.14.tgz"
+  integrity sha512-NrGUQH2VUHZUZpWS4zFrfNaSo2NzI03j0hizh5iu5ln3YDGJ+C+fVo0J4HyNt+QxHmEjcN2hbugi4S62vqO3KQ==
   dependencies:
     three "^0.150.1"
 

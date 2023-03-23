@@ -14,7 +14,7 @@
 		"next": "^13.0.4",
 		"next-sitemap": "^3.1.32",
 		"node-sass": "^7.0.1",
-		"particle-system": "^0.0.13",
+		"particle-system": "^0.0.14",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"sass": "^1.56.1",
