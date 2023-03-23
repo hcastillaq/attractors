@@ -49,11 +49,12 @@ export const AizawaAttractorConfig: SystemAndConfig = {
 	system: new AizawaAttractor(),
 	name: "Aizawa Attractor",
 	config: {
-		particles: 200000,
-		zoom: 4,
-		speed: 1,
-		sizeParticle: 0.013,
+		particles: 500000,
+		zoom: 6,
+		speed: 1.5,
+		sizeParticle: 0.01,
 		autoRotate: true,
 		description: "",
+		opacity: 0.5,
 	},
 };

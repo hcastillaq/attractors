@@ -41,6 +41,7 @@ const SimulationContainer = () => {
 			const node: HTMLElement = ref.current as HTMLElement;
 			const newConfig: ParticleSystemAnimationConfig = {
 				system,
+				stats: true,
 				material: {
 					color: numberToString(color_),
 					sizeParticle: config.sizeParticle,

@@ -50,11 +50,12 @@ export const SphericalPendulumAndConfig: SystemAndConfig = {
 	name: "Spherical Pendulum",
 	system: new SphericalPendulum(),
 	config: {
-		particles: 300000,
+		particles: 800000,
 		zoom: 1200,
 		speed: 1,
-		sizeParticle: 2,
-		autoRotate: false,
+		opacity: 0.2,
+		sizeParticle: 0.01,
+		autoRotate: true,
 		description: "",
 	},
 };

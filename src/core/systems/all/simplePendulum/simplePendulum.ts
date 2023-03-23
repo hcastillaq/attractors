@@ -40,10 +40,11 @@ export const SimplePendulumAndConfig: SystemAndConfig = {
 	name: "Simple Pendulum",
 	system: new SimplePendulum(),
 	config: {
-		particles: 200000,
+		particles: 1000000,
 		zoom: 700,
 		speed: 1,
-		sizeParticle: 1,
+		opacity: 0.15,
+		sizeParticle: 0.01,
 		autoRotate: true,
 		description: "",
 	},

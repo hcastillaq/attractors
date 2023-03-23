@@ -35,10 +35,11 @@ export const ChenAttractorConfig: SystemAndConfig = {
 	system: new ChenAttractor(),
 	name: "Chen  Attractor",
 	config: {
-		particles: 1000000,
+		particles: 3000000,
 		zoom: 250,
 		speed: 1,
-		sizeParticle: 0.2,
+		opacity: 0.2,
+		sizeParticle: 0.01,
 		autoRotate: true,
 		description: "",
 	},

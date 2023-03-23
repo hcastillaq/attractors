@@ -14,6 +14,7 @@ export type SystemConfig = {
 	autoRotate: boolean;
 	description?: string;
 	speed: number;
+	opacity?: number;
 };
 export type SystemAndConfig = {
 	name: string;
