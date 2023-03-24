@@ -3,6 +3,7 @@ import Link from "next/link";
 import Showdown from "showdown";
 import GoSimulate from "../../components/buttons/goSimulate";
 import HeadSeo, { defaultMeta } from "../../components/seo/Head";
+import { StructuredData } from "../../components/structured-data/StructuredData";
 import { Article } from "../../interfaces/article.interface";
 import { ArticlesService } from "../../services/articles.service";
 
@@ -12,9 +13,24 @@ interface Props {
 
 export default function ({ article }: Props) {
 	const converter = new Showdown.Converter();
-
+	const structured_data = {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"@id": `https://www.gartsimulation.com/articles/${article.slug}`,
+		mainEntityOfPage: `https://www.gartsimulation.com/article/${article.slug}`,
+		headline: article.title,
+		description: article.description,
+		name: article.title,
+		author: {
+			"@type": "Person",
+			name: "Hernan Castilla",
+			url: "https://hernancastilla.com",
+		},
+		image: [article.image],
+	};
 	return (
 		<div className="container">
+			<StructuredData data={structured_data} />
 			<HeadSeo
 				meta={{
 					...defaultMeta,
@@ -24,6 +40,7 @@ export default function ({ article }: Props) {
 					url: `${defaultMeta.url}/articles/${article.slug}`,
 				}}
 			/>
+
 			<div className="flex justify-end">
 				<Link href='/' passHref>
 					<u>go to home</u>
