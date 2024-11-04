@@ -8,26 +8,26 @@ import { SphericalPendulumAndConfig } from "./all/spherical-pendulum/speherical-
 import { ThomasAttractorConfig } from "./all/thomas/thomas.attractor";
 
 export type SystemConfig = {
-	particles: number;
-	zoom: number;
-	sizeParticle: number;
-	autoRotate: boolean;
-	description?: string;
-	speed: number;
-	opacity?: number;
+  particles: number;
+  zoom: number;
+  sizeParticle: number;
+  autoRotate: boolean;
+  description?: string;
+  speed: number;
+  opacity?: number;
 };
 export type SystemAndConfig = {
-	name: string;
-	system: ParticleSystem;
-	config: SystemConfig;
+  name: string;
+  system: ParticleSystem;
+  config: SystemConfig;
 };
 
 export const SYSTEMS: { [key: string]: SystemAndConfig } = {
-	lorenz: { ...LorenzAttractorConfig },
-	aizawa: { ...AizawaAttractorConfig },
-	thomas: { ...ThomasAttractorConfig },
-	dadras: { ...DadrasAttractorConfig },
-	chen: { ...ChenAttractorConfig },
-	simplePendulum: { ...SimplePendulumAndConfig },
-	sphericalPendulum: { ...SphericalPendulumAndConfig },
+  lorenz: { ...LorenzAttractorConfig },
+  aizawa: { ...AizawaAttractorConfig },
+  thomas: { ...ThomasAttractorConfig },
+  dadras: { ...DadrasAttractorConfig },
+  chen: { ...ChenAttractorConfig },
+  simplePendulum: { ...SimplePendulumAndConfig },
+  sphericalPendulum: { ...SphericalPendulumAndConfig },
 };

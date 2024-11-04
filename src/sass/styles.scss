@@ -1,23 +1,20 @@
-@use "./layout.scss";
-@use "./inputs.scss";
-@use "./buttons.scss";
-@use "./links.scss";
-@use "./typography.scss";
-@use "./flexbox.scss";
-@use "./articles.scss";
-@use "./formule.scss";
-@use "./code.scss";
+@use "./tailwind.scss";
 
 :root {
-  --text-color: #000;
+  --font-size: 20px;
 }
 
-html {
-  font-size: 20px;
-  line-height: 1.6;
-}
 * {
   margin: 0;
   padding: 0;
-  font-size: 1rem;
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
 }
