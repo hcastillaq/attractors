@@ -73,7 +73,7 @@ const SimulationPage: FC<Props> = ({ name }) => {
       const animationCallbacks = ParticleSystemAnimation(config);
       stop = animationCallbacks.stop;
       setCallbacks({ ...animationCallbacks });
-      callbacks.start();
+      animationCallbacks.start();
     }
 
     return () => {
