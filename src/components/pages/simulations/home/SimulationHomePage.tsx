@@ -1,3 +1,4 @@
+import Button from "@/components/shared/Button";
 import { redirect } from "next/navigation";
 import { SIMULATIONS } from "../../../../db/simulations";
 import Select from "../../../shared/Select";
@@ -27,7 +28,13 @@ const SimulationHomePage = () => {
         })}
       </Select>
 
-      <button type="submit">Go to simulator</button>
+      <Button
+        type="submit"
+        className=" hover:scale-105
+        transition-transform duration-300 ease-in-out"
+      >
+        Go to simulation
+      </Button>
     </form>
   );
 };

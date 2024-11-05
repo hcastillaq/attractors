@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/shared/Button";
 import { useRouter } from "next/navigation";
 import { FC, useRef, useState } from "react";
 import styles from "./SimulationConfigGui.module.scss";
@@ -110,26 +111,26 @@ const SimulationConfigGui: FC<Props> = ({
           </div>
 
           <div>
-            <button
-              className="bg-white text-black rounded-lg w-full text-center p1"
+            <Button
               type="button"
+              className="w-full"
               onClick={() => {
                 takeAPhoto();
               }}
             >
               Take a photo 📷
-            </button>
+            </Button>
           </div>
 
-          <button
-            className="bg-white text-black rounded-lg w-full text-center p1 "
+          <Button
             type="button"
+            className="w-full"
             onClick={() => {
               changeSimulation();
             }}
           >
             Change simulation
-          </button>
+          </Button>
         </div>
       ) : null}
     </div>

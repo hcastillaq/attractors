@@ -36,46 +36,51 @@ const SimulationPage: FC<Props> = ({ name }) => {
     takePhoto: () => {},
   });
 
+  const loadSimulation = () => {
+    const systemAndConfig = SYSTEMS[name];
+    const systemConfig = systemAndConfig.config;
+    const system = systemAndConfig.system;
+
+    setSpeed(systemConfig.speed);
+    setParticles(systemConfig.particles);
+    setOpacity(systemConfig.opacity || 0.5);
+
+    system.setParticlesNumber(systemConfig.particles);
+    system.setSpeed(systemConfig.speed);
+
+    setSystem(system);
+
+    const container = ref.current! as HTMLElement;
+    const config: ParticleSystemAnimationConfig = {
+      system: system,
+      container,
+      stats: true,
+      material: {
+        opacity: opacity,
+        sizeParticle: systemConfig.sizeParticle,
+        color: color,
+      },
+      zoom: systemConfig.zoom,
+      orbitConfig: {
+        autoRotate: systemConfig.autoRotate,
+      },
+    };
+
+    const animationCallbacks = ParticleSystemAnimation(config);
+    return animationCallbacks;
+  };
+
   useEffect(() => {
     let stop = () => {};
     setSystem(undefined);
 
     if (ref.current) {
-      const systemAndConfig = SYSTEMS[name];
-      const systemConfig = systemAndConfig.config;
-      const system = systemAndConfig.system;
-
-      setSpeed(systemConfig.speed);
-      setParticles(systemConfig.particles);
-      setOpacity(systemConfig.opacity || 0.5);
-
-      system.setParticlesNumber(systemConfig.particles);
-      system.setSpeed(systemConfig.speed);
-
-      setSystem(system);
-
-      const container = ref.current! as HTMLElement;
-      const config: ParticleSystemAnimationConfig = {
-        system: system,
-        container,
-        stats: true,
-        material: {
-          opacity: opacity,
-          sizeParticle: systemConfig.sizeParticle,
-          color: color,
-        },
-        zoom: systemConfig.zoom,
-        orbitConfig: {
-          autoRotate: systemConfig.autoRotate,
-        },
-      };
-
-      const animationCallbacks = ParticleSystemAnimation(config);
+      const animationCallbacks = loadSimulation();
       stop = animationCallbacks.stop;
       setCallbacks({ ...animationCallbacks });
+
       animationCallbacks.start();
     }
-
     return () => {
       stop();
     };
