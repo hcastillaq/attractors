@@ -1,7 +1,7 @@
+import SimulationPage from "@/components/pages/simulation/SimulationPage";
+import { SIMULATIONS } from "@/db/simulations";
 import { notFound } from "next/navigation";
 import { FC } from "react";
-import SimulationPage from "../../../components/pages/simulations/simulation/SimulationPage";
-import { SIMULATIONS } from "../../../db/simulations";
 
 interface Props {
   params: Promise<{ slug: string }>;

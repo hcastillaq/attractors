@@ -7,7 +7,7 @@ import {
   ParticleSystemAnimationConfig,
 } from "particle-system";
 import { FC, useEffect, useRef, useState } from "react";
-import { SYSTEMS } from "../../../../core/systems/systems";
+import { SYSTEMS } from "../../../core/systems/systems";
 
 import SimulationConfigGui from "./SimulationConfigGui/SimulationConfigGui";
 import styles from "./SimulationPage.module.scss";
@@ -20,6 +20,8 @@ interface Props {
 
 const SimulationPage: FC<Props> = ({ name }) => {
   const ref = useRef(null);
+
+  const [isStart, setIsStart] = useState(false);
 
   const [system, setSystem] = useState<ParticleSystem | undefined>(undefined);
 
@@ -71,14 +73,12 @@ const SimulationPage: FC<Props> = ({ name }) => {
   };
 
   useEffect(() => {
-    let stop = () => {};
     setSystem(undefined);
-
+    let stop = () => {};
     if (ref.current) {
       const animationCallbacks = loadSimulation();
       stop = animationCallbacks.stop;
       setCallbacks({ ...animationCallbacks });
-
       animationCallbacks.start();
     }
     return () => {
@@ -110,6 +110,7 @@ const SimulationPage: FC<Props> = ({ name }) => {
         setParticles={setParticles}
         takeAPhoto={callbacks.takePhoto}
       />
+
       <div ref={ref}></div>
     </div>
   );

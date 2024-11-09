@@ -1,7 +1,7 @@
-import HomePage from "../components/pages/home/Home.page";
+import SimulationHomePage from "@/components/pages/home/SimulationHomePage";
 
-const Home = () => {
-  return <HomePage />;
+const Simulations = () => {
+  return <SimulationHomePage />;
 };
 
-export default Home;
+export default Simulations;

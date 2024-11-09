@@ -37,7 +37,7 @@ const SimulationConfigGui: FC<Props> = ({
   const colorRef = useRef<HTMLInputElement>(null);
 
   const changeSimulation = () => {
-    router.push("/simulations");
+    router.push("/");
   };
 
   return (
