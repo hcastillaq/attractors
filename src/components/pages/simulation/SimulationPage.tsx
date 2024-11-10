@@ -21,8 +21,6 @@ interface Props {
 const SimulationPage: FC<Props> = ({ name }) => {
   const ref = useRef(null);
 
-  const [isStart, setIsStart] = useState(false);
-
   const [system, setSystem] = useState<ParticleSystem | undefined>(undefined);
 
   const [color, setColor] = useState("#00FFFF");
