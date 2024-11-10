@@ -1,4 +1,4 @@
-import { ParticleSystem } from "particle-system";
+import { GArtParticle, GArtSystem } from "particle-system";
 import { AizawaAttractorConfig } from "./all/aizawa/aizawa.attractor";
 import { ChenAttractorConfig } from "./all/chen/chen.attractor";
 import { DadrasAttractorConfig } from "./all/dadras/dadras.attractor";
@@ -18,7 +18,7 @@ export type SystemConfig = {
 };
 export type SystemAndConfig = {
   name: string;
-  system: ParticleSystem;
+  system: GArtSystem<GArtParticle>;
   config: SystemConfig;
 };
 

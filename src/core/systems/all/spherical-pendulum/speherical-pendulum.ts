@@ -1,8 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ParticleSystem } from "particle-system";
+import { GArtParticle, GArtSystem } from "particle-system";
 import { SystemAndConfig } from "../../systems";
 
-class SphericalPendulum extends ParticleSystem {
+interface SphericalPendulumParticle extends GArtParticle {
+  l: number;
+  a1: number;
+  a2: number;
+  av1: number;
+  av2: number;
+  g: number;
+}
+class SphericalPendulum extends GArtSystem<SphericalPendulumParticle> {
   private l = [100, 200, 300, 400];
 
   make() {

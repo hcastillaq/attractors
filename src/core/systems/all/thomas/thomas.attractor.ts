@@ -1,7 +1,15 @@
-import { ParticleSystem } from "particle-system";
+import { GArtParticle, GArtSystem } from "particle-system";
 import { SystemAndConfig } from "../../systems";
 
-class ThomasAttractor extends ParticleSystem {
+interface ThomasParticle extends GArtParticle {
+  x: number;
+  y: number;
+  z: number;
+  b: number;
+  dt: number;
+}
+
+class ThomasAttractor extends GArtSystem<ThomasParticle> {
   make() {
     return {
       x: 0.1,
